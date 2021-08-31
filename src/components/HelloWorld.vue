@@ -1,28 +1,40 @@
 <template>
-  <div class="hello">Hello
-  </div>
+    <div class="hello">
+        Hello
+        <span class="grey--text">Number 10</span>
+        <br>
+        <span>{{projectlist}}</span>
+        <br>
+    </div>
+
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { Options, Vue } from 'vue-class-component'
+import { mapState } from 'vuex'
 
 @Options({
-  props: {
-    msg: String
-  },
-  data() {
-      return {
-      }
-  },
-  computed: {
-      
-  },
-  methods: {
-      
-  }
+    props: {
+        msg: String,
+    },
+    data() {
+        return {
+        }
+    },
+    computed: {
+        ...mapState(['projectlist']),
+    },
+    methods: {
+
+    },
+
+    mounted() {
+        this.$store.dispatch('fetchProject', 1)
+    },
+
 })
 export default class HelloWorld extends Vue {
-  //msg!: string;
+  msg!: string;
 }
 </script>
 

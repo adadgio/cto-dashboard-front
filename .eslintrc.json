@@ -1,0 +1,61 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:vue/base",
+        "360medics-base"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue"
+    ],
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["@", "./src"]
+                ],
+                "extensions": [".vue", ".json", ".ts", ".js"]
+            }
+        }
+    },
+    "rules": {
+        "vue/html-indent": ["error", 4, {
+            "attribute": 1,
+            "baseIndent": 1,
+            "closeBracket": 0,
+            "alignAttributesVertically": true,
+            "ignores": []
+        }],
+        "no-shadow": "off",
+        //["error", { "allow": ["state", "name", "payload"] }],
+        "radix": ["error", "as-needed"],
+        "max-classes-per-file": ["error", 5], //Rom...
+        "no-underscore-dangle": "off", // pas sur de piger
+        "no-param-reassign": ["error", { "props": false }], // idéalement à enlever
+        "no-restricted-syntax": "off", // à enlever
+        "guard-for-in": "off", // à enlever
+        "vue/no-mutating-props": "off" // à enlever... gros taff... 
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.store.ts"
+            ],
+            "rules": {
+                "@typescript-eslint/explicit-module-boundary-types": "off",
+                "@typescript-eslint/no-explicit-any": "off"
+            }
+        }]
+}
