@@ -45,8 +45,7 @@
                     'name': 'azert4',
                     'type': 'Feature',
                     'status': 'Todo'
-                },
-                
+                }
             ]" />
         </div>
     </div>
@@ -67,7 +66,7 @@ export interface SprintSelectorEvent {
     components: {
         ProjectList,
         SprintSelector,
-        ProjectDetails
+        ProjectDetails,
     },
 
     data() {
