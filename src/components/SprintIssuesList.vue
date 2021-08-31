@@ -1,8 +1,7 @@
 <template>
-    <div class="container">
-        <p>Bugs :</p>
+    <div class="issueContainer">
         <div>
-            <template v-for="issue in issues" :key="issue.name">
+            <template v-for="issue in issues" :key="issue.id">
                 <ul class="list">
                     <template v-if="issue.status === 'Todo'">
                         <li class="contentContainer">
@@ -10,10 +9,6 @@
                             <p class="contentLabel">{{ issue.name }}</p>
                         </li>
                     </template>
-                </ul>
-            </template>
-            <template v-for="issue in issues" :key="issue.name">
-                <ul class="list">
                     <template v-if="issue.status === 'Done'">
                         <li class="contentContainer">
                             <div class="feature"></div>
@@ -40,7 +35,7 @@ export default class SprintIssuesList extends Vue {}
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-    .container {
+    .issueContainer {
         text-align: left;
     }
 
