@@ -1,16 +1,30 @@
 <template>
   <div class="home">
-    <HelloWorld :msg="'Hi'"/>
+    <ProjectList :projects="[{
+                              'name':	'Projet de test 1',
+                              'nbBugsTodo': '2',
+                              'nbBugsDone': '3',
+                              'nbFeatureTodo': '1',
+                              'nbFeatureDone': '4',
+                              },
+                              {
+                              'name':	'Projet de test 2',
+                              'nbBugsTodo': '4',
+                              'nbBugsDone': '6',
+                              'nbFeatureTodo': '0',
+                              'nbFeatureDone': '7',
+                              }
+                            ]" />
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import ProjectList from '@/components/ProjectList.vue';
 
 @Options({
   components: {
-    HelloWorld,
+    ProjectList
   },
   data() {
       return {
