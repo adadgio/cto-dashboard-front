@@ -1,67 +1,48 @@
-
-
 <template>
-  <div class="custom-select" :tabindex="tabindex" @blur="open = false">
-    <div class="selected" :class="{ open: open }" @click="open = !open">
-      {{ selected }}
-    </div>
-    <div class="items" :class="{ selectHide: !open }">
-      <div
-        v-for="(option, i) of options"
-        :key="i"
-        @click="
-          selected = option;
-          open = false;
-          $emit('input', option);
-        "
+    <div class="custom-select">
+    <select class="custom-select items">
+      <option v-for="(option, i) of options" :key="i" 
+        @click="onSelect(option)"
       >
         {{ option }}
-      </div>
-    </div>
+      </option>
+    </select>
+      <span>Selected: {{ selectArray }}</span>
   </div>
 </template>
 
 <script lang="ts">
-declare interface SprintSelectorTypes {
-  selected?: string;
-  open?: boolean;
-  default?: string;
-  options?: string;
-}
 
-export default {
-  props: {
-    options: {
-      type: Array,
-      required: true,
+import { Vue, Options } from "vue-class-component";
+
+  @Options({
+    props: {
+      options: {
+        type: Array,
+        required: true,
+      },
     },
-    default: {
-      type: String,
-      required: false,
-      default: null,
-    },
-    tabindex: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-  },
   data() {
     return {
-      selected: this.default
-        ? this.default
-        : this.options.length > 0
-        ? this.options[0]
-        : null,
+      selectArray: [],
       open: false,
-    } as any 
-  }, 
-
-  mounted() {
-    this.$emit("input", this.selected);
+    } 
   },
-};
-
+  methods: {
+    onSelect(option: string) {
+    
+        this.selectArray.push(option)
+        const test = this.selectArray.filter((op: any) => {
+          console.log(op, option)
+          op !== option
+          
+        })
+    }
+  
+  },
+  })
+  export default class SprintSelector extends Vue {
+    }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -71,8 +52,9 @@ export default {
   width: 100%;
   text-align: left;
   outline: none;
-  height: 47px;
+  height: 60px;
   line-height: 47px;
+  background-color: red;
 }
 
 .custom-select .selected {
@@ -85,10 +67,7 @@ export default {
   user-select: none;
 }
 
-.custom-select .selected.open {
-  border: 1px solid #ad8225;
-  border-radius: 6px 6px 0px 0px;
-}
+
 
 .custom-select .selected:after {
   position: absolute;
