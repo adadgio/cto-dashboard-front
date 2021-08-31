@@ -54,7 +54,7 @@ export default class ProjectDetails extends Vue {}
     .container {
         margin-top: 50px;
         margin-left: 20px;
-        width: 100%;
+        width: 40%;
         border-style: solid;
         border-color: black;
         border-width: 1px;
