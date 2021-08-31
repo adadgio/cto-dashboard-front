@@ -13,6 +13,7 @@
   "dependencies": {
     "@cto-dashboard-model/cto-dashboard-model": "https://github.com/adadgio/cto-dashboard-model",
     "@vue/runtime-core": "^3.2.6",
+    "axios": "^0.21.1",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.0-0",
