@@ -28,7 +28,11 @@
                 ],
                 "extensions": [".vue", ".json", ".ts", ".js"]
             }
-        }
+        },
+        "import/no-unresolved": [
+            2, 
+            { "caseSensitive": false }
+         ]
     },
     "rules": {
         "vue/html-indent": ["error", 4, {
