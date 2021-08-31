@@ -2,10 +2,10 @@
     <div>
         <h2>{{ project.name }}</h2>
         <div>
-            module à théthé fait
+            <ProjectCard :onGoing="true" :project="project" />    
         </div>
         <div>
-            module à théthé en cours
+            <ProjectCard :onGoing="false" :project="project" />
         </div>
 
         
@@ -15,8 +15,12 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import ProjectCard from '@/components/SprintProjectCard.vue';
 
 @Options({
+    components: {
+        ProjectCard
+    },
     props: {
         project :{
             type: Object,

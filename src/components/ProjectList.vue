@@ -12,6 +12,7 @@
 <script lang='ts'>
 import { Options, Vue } from "vue-class-component";
 import Project from '@/components/Project.vue';
+import { Project as ProjectObj } from "@cto-dashboard-model/cto-dashboard-model";
 
 
 @Options({
@@ -20,7 +21,7 @@ import Project from '@/components/Project.vue';
     },
     props : {
         projects: {
-            type : Array as () => Array<Project>,
+            type : Array as () => Array<ProjectObj>,
             
         }
     }

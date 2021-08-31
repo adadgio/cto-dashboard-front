@@ -231,6 +231,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@cto-dashboard-model/cto-dashboard-model@https://github.com/adadgio/cto-dashboard-model":
+  version "1.1.1"
+  resolved "https://github.com/adadgio/cto-dashboard-model#371a8128332ef86bf055b77c166ac50e8adf441e"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.nlark.com/@hapi/address/download/@hapi/address-2.1.4.tgz"
