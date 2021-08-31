@@ -1,6 +1,8 @@
 <template>
-   <div>Header</div>
-  <router-view/>
+    <div>
+        <div>Header</div>
+        <router-view/>
+    </div>
 </template>
 
 <style lang="scss">
