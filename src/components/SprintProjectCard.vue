@@ -2,16 +2,8 @@
   <div class="content">
     <h2 class="on-going" v-if="onGoing">En cours</h2>
     <h2 class="done" v-else>Fait</h2>
-    <p>11</p>
-    <p>11</p>
-    <!-- <template v-if="onGoing">
-      <SprintIssueContentCard class="features" :nbrFeature="project.nbBugsTodo" issues="features" />
-      <SprintIssueContentCard class="bugs" :nbrBug="project.nbFeatureTodo" issues="bugs" />
-    </template>
-    <template v-else>
-      <SprintIssueContentCard class="features" :nbrFeature="project.nbBugsDone" issues="features" />
-      <SprintIssueContentCard class="bugs" :nbrBug="project.nbFeatureDone" issues="bugs" />
-    </template> -->
+    <SprintIssueContentCard v-if="onGoing" class="features" :nbrFeature="project.nbFeatureTodo" :nbrBug="project.nbBugsTodo" />
+    <SprintIssueContentCard v-else class="features" :nbrFeature="project.nbFeatureDone" :nbrBug="project.nbBugsDone" />
   </div>
 </template>
 
@@ -19,8 +11,12 @@
 import { PropType } from '@vue/runtime-core';
 import { Options, Vue } from 'vue-class-component';
 import { Project } from '@cto-dashboard-model/cto-dashboard-model';
+import SprintIssueContentCard from '@/components/SprintIssueContentCard.vue';
 
 @Options({
+  components: {
+    SprintIssueContentCard,
+  },
   props: {
     onGoing: Boolean,
     project: {
