@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="list">
         <ul>
             <li v-for="project in projects" :key="project.name">
                 <Project :project="project"/>
@@ -7,6 +7,13 @@
         </ul>
     </div>
 </template>
+
+<style scoped>
+    #list {
+        max-width: 50%;
+        margin-top: 50px;
+    }
+</style>
 
 <script lang='ts'>
 import { Options, Vue } from 'vue-class-component'

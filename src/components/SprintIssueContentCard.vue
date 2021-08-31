@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <p class="bug">{{nbrBug}} : Bugs</p>
-        <p class="feature">{{nbrFeature}} : Features</p>
+        <p class="bug">Bugs : {{nbrBug}}</p>
+        <p class="feature">Features : {{nbrFeature}}</p>
     </div>
 </template>
 
