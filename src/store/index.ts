@@ -31,7 +31,7 @@ export default createStore({
     actions: {
         async fetchProject({ commit }, sprintid: number) {
             const response = await Axios.get(
-                `${apiUrl}/projectList?SprintsIds=${sprintid}`,
+                `${apiUrl}/projectList?SprintIds=${sprintid}`,
             )
             commit('FETCH_PROJECT', response.data)
         },

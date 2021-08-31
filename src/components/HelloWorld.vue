@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
+import { mapState } from 'vuex'
 
 @Options({
     props: {
@@ -21,11 +22,12 @@ import { Options, Vue } from 'vue-class-component'
         }
     },
     computed: {
-
+        ...mapState(['projectlist']),
     },
     methods: {
 
     },
+
     mounted() {
         this.$store.dispatch('fetchProject', 1)
     },
