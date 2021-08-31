@@ -10,7 +10,7 @@
 
 <style scoped>
     #list {
-        max-width: 50%;
+        width: 40%;
         margin-top: 50px;
     }
 </style>

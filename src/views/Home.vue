@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div>
         <SprintSelector
             :options="sprints"
 
@@ -92,8 +92,10 @@ export default class Home extends Vue {}
 </script>
 
 <style scoped lang="scss">
-    .home {
+    .projectContainer {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        margin-top: 15px;
     }
 </style>
