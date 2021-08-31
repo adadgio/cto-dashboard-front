@@ -2,8 +2,11 @@
     <div class="home">
         <SprintSelector
             :options="sprints"
-            @onChange="onSelectChange"
+
         />
+    </div>
+    <div class="home">
+
         <ProjectList :projects="[
             {
                 'name': 'Projet de test 1',
