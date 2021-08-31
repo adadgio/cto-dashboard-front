@@ -9,20 +9,19 @@
 </template>
 
 <script lang='ts'>
-import { Options, Vue } from "vue-class-component";
-import Project from '@/components/Project.vue';
-import { Project as ProjectObj } from "@cto-dashboard-model/cto-dashboard-model";
-
+import { Options, Vue } from 'vue-class-component'
+import { Project as ProjectObj } from '@cto-dashboard-model/cto-dashboard-model'
+import Project from '@/components/Project.vue'
 
 @Options({
     components: {
-        Project
+        Project,
     },
-    props : {
+    props: {
         projects: {
-            type : Array as () => Array<ProjectObj>,    
-        }
-    }
+            type: Array as () => Array<ProjectObj>,
+        },
+    },
 })
 export default class ProjectList extends Vue {
 
