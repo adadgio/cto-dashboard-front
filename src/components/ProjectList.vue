@@ -5,7 +5,6 @@
                 <Project :project="project"/>
             </li>
         </ul>
-        
     </div>
 </template>
 
@@ -21,8 +20,7 @@ import { Project as ProjectObj } from "@cto-dashboard-model/cto-dashboard-model"
     },
     props : {
         projects: {
-            type : Array as () => Array<ProjectObj>,
-            
+            type : Array as () => Array<ProjectObj>,    
         }
     }
 })
