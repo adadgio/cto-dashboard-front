@@ -1,15 +1,18 @@
 <template>
-  <template v-if="onGoing">
+  <div class="content">
     <h2 class="on-going" v-if="onGoing">En cours</h2>
-    <SprintIssueContentCard class="features" :nbrFeature="project.nbBugsTodo" issues="features" />
-    <SprintIssueContentCard class="bugs" :nbrBug="project.nbFeatureTodo" issues="bugs" />
-  </template>
-
-  <template v-else>
-    <h2 class="done">Fait</h2>
-    <SprintIssueContentCard class="features" :nbrFeature="project.nbBugsDone" issues="features" />
-    <SprintIssueContentCard class="bugs" :nbrBug="project.nbFeatureDone" issues="bugs" />
-  </template>
+    <h2 class="done" v-else>Fait</h2>
+    <p>11</p>
+    <p>11</p>
+    <!-- <template v-if="onGoing">
+      <SprintIssueContentCard class="features" :nbrFeature="project.nbBugsTodo" issues="features" />
+      <SprintIssueContentCard class="bugs" :nbrBug="project.nbFeatureTodo" issues="bugs" />
+    </template>
+    <template v-else>
+      <SprintIssueContentCard class="features" :nbrFeature="project.nbBugsDone" issues="features" />
+      <SprintIssueContentCard class="bugs" :nbrBug="project.nbFeatureDone" issues="bugs" />
+    </template> -->
+  </div>
 </template>
 
 <script lang="ts">
@@ -35,11 +38,18 @@ export default class SprintProjectCard extends Vue {}
 </script>
 
 <style scoped lang="scss">
+.content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
 .on-going {
- background-color: 'red';
+  color: white;
+ background-color: red;
 }
 .done {
-  background-color: 'green';
+  color: white;
+  background-color: green;
 }
 .features {
 
