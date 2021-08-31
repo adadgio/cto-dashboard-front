@@ -7,7 +7,6 @@
         <div>
             <ProjectCard :onGoing="false" :project="project" />
         </div>
-
     </div>
 </template>
 
