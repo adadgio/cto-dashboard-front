@@ -1,48 +1,63 @@
 <template>
     <div class="custom-select">
-    <select class="custom-select items">
-      <option v-for="(option, i) of options" :key="i" 
+        <div>{{selectedItems}}</div>
+
+        <div class="dropdown">
+            <div v-for="option of options" :key="option.id" @click="onSelect(option)">
+                <input type="checkbox"> {{ option.name }}
+            </div>
+
+        </div>
+
+
+    <!--<select class="custom-select items">
+        <option v-for="(option, i) of options" :key="i" 
         @click="onSelect(option)"
-      >
-        {{ option }}
-      </option>
+        >
+        
+        </option>
     </select>
-      <span>Selected: {{ selectArray }}</span>
-  </div>
+    <span>Selected: {{ selectArray }}</span>-->
+    </div>
 </template>
 
 <script lang="ts">
-
 import { Vue, Options } from "vue-class-component";
 
-  @Options({
-    props: {
-      options: {
+@Options({
+props: {
+    options: {
         type: Array,
         required: true,
-      },
     },
-  data() {
+},
+data() {
     return {
-      selectArray: [],
-      open: false,
-    } 
-  },
-  methods: {
-    onSelect(option: string) {
-    
-        this.selectArray.push(option)
-        const test = this.selectArray.filter((op: any) => {
-          console.log(op, option)
-          op !== option
-          
-        })
+        selectedItems: [],
+        open: false,
     }
-  
-  },
-  })
-  export default class SprintSelector extends Vue {
+},
+methods: {
+    onSelect(option: any) {
+
+        // si l'option est déjà sélectionnée, on la retire
+        // sinon, on l'ajoute
+        //if (this.selectedItems.includes(option)) {
+        //    const index = this.selectedItems.indexOf(option)
+        //    this.selectedItems.splice(index, 1)
+        //} else {
+        //    this.selectedItems.push(option)
+        //}
+
+        this.selectedItems.push(option)
+        console.log(this.selectedItems)
+
+        this.$emit('onChange', this.selectedItems)
     }
+
+},
+})
+export default class SprintSelector extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

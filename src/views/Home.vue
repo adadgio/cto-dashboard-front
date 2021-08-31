@@ -2,9 +2,8 @@
   <div class="home">
     <HelloWorld :msg="'Hi'"/>
     <SprintSelector
-      :options="['', 'python', 'rust', 'javascript']"
-     
-   
+      :options="sprints"
+      @onChange="onSelectChange"
     />
   </div>
 </template>
@@ -22,12 +21,19 @@ import SprintSelector from "@/components/SprintSelector.vue";
   },
   data() {
       return {
-        
+        sprints: [
+            {
+                id:1, name: 'Sprint 1',
+            },
+            {
+                id: 2, name: 'Sprint 2',
+            }
+        ]
       }
   },
   methods: {
-      stuffHasBeenChange() {
-        
+      onSelectChange(e: any) {
+        console.log(e)
       }
   }
 })
