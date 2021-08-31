@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="titleContainer">
-            {{ projectName }}
+            <p class="title">{{ projectName }}</p>
         </div>
         <div class="contentContainer">
             <p class="label">Bug :</p>
@@ -61,6 +61,9 @@ export default class ProjectDetails extends Vue {}
         text-align: left;
         overflow-y: auto;
         height: 85vh;
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 10px;
     }
 
     .titleContainer {
@@ -71,6 +74,12 @@ export default class ProjectDetails extends Vue {}
         height: 50px;
     }
 
+    .title {
+        font-size: 20px;
+        height: 50px;
+        vertical-align: middle;
+    }
+
     .contentContainer {
         display: flex;
         flex-direction: column;
@@ -79,6 +88,7 @@ export default class ProjectDetails extends Vue {}
 
     .label {
         margin-left: 10px;
+        font-size: 18px;
     }
 
     .issueListContainer {
