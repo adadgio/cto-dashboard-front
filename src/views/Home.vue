@@ -92,10 +92,16 @@ export default class Home extends Vue {}
 </script>
 
 <style scoped lang="scss">
+<<<<<<< HEAD
     .projectContainer {
         display: flex;
         flex-direction: row;
         justify-content: center;
         margin-top: 15px;
+=======
+    .home {
+        display: flex;
+        flex-direction: row;
+>>>>>>> fbaf7c97acc995576c1b5fcace40ae09a8ceab8c
     }
 </style>
