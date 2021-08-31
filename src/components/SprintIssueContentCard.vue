@@ -1,18 +1,18 @@
 <template>
-  <div class="container">
-    <p class="bug">{{nbrBug}} : Bugs</p>
-    <p class="feature">{{nbrFeature}} : Features</p>
-  </div>
+    <div class="container">
+        <p class="bug">{{nbrBug}} : Bugs</p>
+        <p class="feature">{{nbrFeature}} : Features</p>
+    </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { Options, Vue } from 'vue-class-component'
 
 @Options({
-  props: {
-      nbrBug: Number,
-      nbrFeature: Number 
-  }
+    props: {
+        nbrBug: Number,
+        nbrFeature: Number,
+    },
 })
 
 export default class SprintIssueContentCard extends Vue {}

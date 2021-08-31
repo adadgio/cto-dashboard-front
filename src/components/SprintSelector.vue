@@ -9,12 +9,10 @@
 
         </div>
 
-
     <!--<select class="custom-select items">
-        <option v-for="(option, i) of options" :key="i" 
+        <option v-for="(option, i) of options" :key="i"
         @click="onSelect(option)"
         >
-        
         </option>
     </select>
     <span>Selected: {{ selectArray }}</span>-->
@@ -22,40 +20,29 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
+import { Vue, Options } from 'vue-class-component'
 
 @Options({
-props: {
-    options: {
-        type: Array,
-        required: true,
+    props: {
+        options: {
+            type: Array,
+            required: true,
+        },
     },
-},
-data() {
-    return {
-        selectedItems: [],
-        open: false,
-    }
-},
-methods: {
-    onSelect(option: any) {
+    data() {
+        return {
+            selectedItems: [],
+            open: false,
+        }
+    },
+    methods: {
+        onSelect(option: any) {
+            this.selectedItems.push(option)
+            console.log(this.selectedItems)
 
-        // si l'option est déjà sélectionnée, on la retire
-        // sinon, on l'ajoute
-        //if (this.selectedItems.includes(option)) {
-        //    const index = this.selectedItems.indexOf(option)
-        //    this.selectedItems.splice(index, 1)
-        //} else {
-        //    this.selectedItems.push(option)
-        //}
-
-        this.selectedItems.push(option)
-        console.log(this.selectedItems)
-
-        this.$emit('onChange', this.selectedItems)
-    }
-
-},
+            this.$emit('onChange', this.selectedItems)
+        },
+    },
 })
 export default class SprintSelector extends Vue {}
 </script>
@@ -81,8 +68,6 @@ export default class SprintSelector extends Vue {}
   cursor: pointer;
   user-select: none;
 }
-
-
 
 .custom-select .selected:after {
   position: absolute;
