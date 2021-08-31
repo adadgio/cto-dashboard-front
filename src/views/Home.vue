@@ -30,7 +30,6 @@ import ProjectList from '@/components/ProjectList.vue'
     data() {
         return {}
     },
-    methods: {},
 })
 export default class Home extends Vue {}
 </script>
