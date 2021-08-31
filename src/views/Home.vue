@@ -12,6 +12,7 @@
 import { Options, Vue } from 'vue-class-component'
 import HelloWorld from '@/components/HelloWorld.vue'
 import SprintSelector from '@/components/SprintSelector.vue'
+import { SprintSelectorEvent } from '@/events/Events'
 
 @Options({
     components: {
@@ -31,7 +32,8 @@ import SprintSelector from '@/components/SprintSelector.vue'
         }
     },
     methods: {
-        onSelectChange(e: any) {
+        onSelectChange(e: SprintSelectorEvent) {
+            // event received
             console.log(e)
         },
     },

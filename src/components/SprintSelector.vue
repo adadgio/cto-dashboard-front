@@ -31,7 +31,7 @@ import { Vue, Options } from 'vue-class-component'
         }
     },
     methods: {
-        onSelect(option: any) {
+        onSelect(option: Array<any>) {
             // si l'option est déjà sélectionnée, on la retire
             // sinon, on l'ajoute
             // if (this.selectedItems.includes(option)) {
@@ -42,9 +42,7 @@ import { Vue, Options } from 'vue-class-component'
             // }
 
             this.selectedItems.push(option)
-            console.log(this.selectedItems)
-
-            this.$emit('onChange', this.selectedItems)
+            this.$emit('onChange', { selection: this.selectedItems })
         },
 
     },
