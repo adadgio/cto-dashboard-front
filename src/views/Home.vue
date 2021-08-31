@@ -67,7 +67,7 @@ export interface SprintSelectorEvent {
     components: {
         ProjectList,
         SprintSelector,
-        ProjectDetails
+        ProjectDetails,
     },
 
     data() {
