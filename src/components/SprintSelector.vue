@@ -1,21 +1,21 @@
 <template>
     <div class="custom-select">
-        <div>{{selectedItems}}</div>
-
-        <div class="dropdown">
-            <div v-for="option of options" :key="option.id" @click="onSelect(option)">
-                <input type="checkbox"> {{ option.name }}
-            </div>
-
+        <div class=" select-tags" v-for="item of selectedItems" :key="item.id">
+            <p class="tags">{{ item.name }}</p>
         </div>
-
-    <!--<select class="custom-select items">
-        <option v-for="(option, i) of options" :key="i"
-        @click="onSelect(option)"
-        >
-        </option>
-    </select>
-    <span>Selected: {{ selectArray }}</span>-->
+    </div>
+    <div class="dropdown">
+        <div v-for="option of options" :key="option.id">
+            <label>
+                <input
+                    type="checkbox"
+                    v-model="option.checked"
+                    @click="onSelect(option)"
+                    @change="onSelectChange"
+                />
+                {{ option.name }}
+            </label>
+        </div>
     </div>
 </template>
 
@@ -32,15 +32,20 @@ import { Vue, Options } from 'vue-class-component'
     data() {
         return {
             selectedItems: [],
-            open: false,
+            checked: false,
         }
     },
     methods: {
         onSelect(option: any) {
-            this.selectedItems.push(option)
-            console.log(this.selectedItems)
-
-            this.$emit('onChange', this.selectedItems)
+            let test
+            const id = this.selectedItems.map((x: any) => x.id)
+            if (id.includes(option.id) && option.checked) {
+                const index = this.selectedItems.indexOf(option)
+                test = this.selectedItems.splice(index, 1)
+            } else {
+                test = this.selectedItems.push(option)
+            }
+            this.$emit('onChange', test)
         },
     },
 })
@@ -49,14 +54,46 @@ export default class SprintSelector extends Vue {}
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.select-tags {
+  border-radius: 50px;
+  height: 10px;
+  width: 100px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #40a8f7;
+  margin-left: 10px;
+}
+.tags {
+  display: flex;
+  color: #fff;
+  font-weight: bold;
+  justify-content: center;
+}
+.dropdown {
+  color: #ffffff;
+  border-radius: 0px 0px 6px 6px;
+  overflow: hidden;
+  border-right: 1px solid #ce9b2c;
+  border-left: 1px solid #ce9b2c;
+  border-bottom: 1px solid #ce9b2c;
+  position: absolute;
+  background-color: #080d0e;
+  left: 0;
+  right: 0;
+}
 .custom-select {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   position: relative;
   width: 100%;
   text-align: left;
   outline: none;
   height: 60px;
   line-height: 47px;
-  background-color: red;
+  background-color: #dddddd;
 }
 
 .custom-select .selected {
