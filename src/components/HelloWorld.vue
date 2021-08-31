@@ -26,6 +26,9 @@ import { Options, Vue } from 'vue-class-component'
     methods: {
 
     },
+    mounted() {
+        this.$store.dispatch('fetchProject', 1)
+    },
 
 })
 export default class HelloWorld extends Vue {
