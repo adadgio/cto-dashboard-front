@@ -24,6 +24,8 @@ export default class SprintIssueContentCard extends Vue {}
     text-align: left;
     padding-left: 5px;
     background-color: rgb(231, 231, 231);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   .bug {

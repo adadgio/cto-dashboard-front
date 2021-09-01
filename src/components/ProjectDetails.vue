@@ -1,8 +1,6 @@
 <template>
     <div class="container">
-        <div class="titleContainer">
-            <p class="title">{{ projectName }}</p>
-        </div>
+        <p class="title">{{ projectName }}</p>
         <div class="contentContainer">
             <p class="label">Bug :</p>
             <div class="issueListContainer">
@@ -21,12 +19,16 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
 import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
+import { PropType } from '@vue/runtime-core'
 import SprintIssuesList from '@/components/SprintIssuesList.vue'
 
 @Options({
     props: {
         projectName: String,
-        issues: Array as () => Array<Issue>,
+        issues: {
+            type: [] as PropType<Array<Issue>>,
+            default: [],
+        },
     },
     components: {
         SprintIssuesList,
@@ -59,31 +61,38 @@ export default class ProjectDetails extends Vue {}
         border-color: black;
         border-width: 1px;
         text-align: left;
-        overflow-y: auto;
-        height: 85vh;
+        max-height: 72vh;
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 10px;
-    }
-
-    .titleContainer {
-        border-bottom: solid;
-        border-width: 1px;
-        text-align: center;
-        font-weight: bold;
-        height: 50px;
+        border-radius: 10px;
     }
 
     .title {
         font-size: 20px;
-        height: 50px;
-        vertical-align: middle;
+        border-bottom: solid;
+        border-width: 1px;
+        text-align: center;
+        font-weight: bold;
+        margin: 0px;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #b5b5b5;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 
     .contentContainer {
         display: flex;
         flex-direction: column;
         border-style: none;
+        overflow-y: auto;
+        height: 90%;
+        background-color: #e7e7e7;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     .label {
@@ -95,5 +104,6 @@ export default class ProjectDetails extends Vue {}
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        flex-wrap: wrap;
     }
 </style>

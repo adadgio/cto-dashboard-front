@@ -38,6 +38,7 @@ export default class SprintProjectCard extends Vue {}
     display: flex;
     flex-direction: column;
     border: 1px solid black;
+    border-radius: 10px;
 }
 .on-going {
     color: white;
@@ -45,6 +46,8 @@ export default class SprintProjectCard extends Vue {}
     display: flex;
     justify-content: center;
     height: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .done {
     color: white;
@@ -52,6 +55,8 @@ export default class SprintProjectCard extends Vue {}
     display: flex;
     justify-content: center;
     height: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .Label {
     margin: 0px;

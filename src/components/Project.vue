@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="project">
         <h2>{{ project.name }}</h2>
         <div id="project-cards">
             <div class="card">
@@ -17,14 +17,21 @@
         flex-direction: row;
         justify-content: space-between;
     }
+
     .card {
         width: 40%;
-        background-color: white;
     }
-    .card:hover {
-        background-color: rgb(199, 159, 159);
+
+    .project {
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .project:hover {
+        background-color: #e7e7e7;
         transition: background-color 200ms ease-in-out;
     }
+
 </style>
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'

@@ -24,24 +24,112 @@
             <ProjectDetails :projectName="'test'" :issues="[
                 {
                     'id': 1,
+                    'boardId': 2,
+                    'name': 'azelmkjhvgcfvjbk nliubgyuf tdrtfygutfr gutfrfgut fygm jihuyt',
+                    'type': 'Bug',
+                    'status': 'Done'
+                },
+                {
+                    'id': 2,
+                    'boardId': 3,
+                    'name': 'hd',
+                    'type': 'Bug',
+                    'status': 'Todo'
+                },
+                {
+                    'id': 3,
+                    'boardId': 4,
+                    'name': 'ikyth',
+                    'type': 'Feature',
+                    'status': 'Done'
+                },
+                {
+                    'id': 1,
+                    'boardId': 2,
+                    'name': 'rtb',
+                    'type': 'Bug',
+                    'status': 'Done'
+                },
+                {
+                    'id': 2,
+                    'boardId': 3,
+                    'name': 'ce',
+                    'type': 'Bug',
+                    'status': 'Todo'
+                },
+                {
+                    'id': 3,
+                    'boardId': 4,
+                    'name': 'vgb',
+                    'type': 'Feature',
+                    'status': 'Done'
+                },
+                {
+                    'id': 1,
+                    'boardId': 2,
                     'name': 'azert',
                     'type': 'Bug',
                     'status': 'Done'
                 },
                 {
                     'id': 2,
+                    'boardId': 3,
                     'name': 'azert2',
                     'type': 'Bug',
                     'status': 'Todo'
                 },
                 {
                     'id': 3,
+                    'boardId': 4,
+                    'name': 'azert3',
+                    'type': 'Feature',
+                    'status': 'Done'
+                },
+                {
+                    'id': 1,
+                    'boardId': 2,
+                    'name': 'azert',
+                    'type': 'Bug',
+                    'status': 'Done'
+                },
+                {
+                    'id': 2,
+                    'boardId': 3,
+                    'name': 'azert2',
+                    'type': 'Bug',
+                    'status': 'Todo'
+                },
+                {
+                    'id': 3,
+                    'boardId': 4,
+                    'name': 'azert3',
+                    'type': 'Feature',
+                    'status': 'Done'
+                },
+                {
+                    'id': 1,
+                    'boardId': 2,
+                    'name': 'azert',
+                    'type': 'Bug',
+                    'status': 'Done'
+                },
+                {
+                    'id': 2,
+                    'boardId': 3,
+                    'name': 'azert2',
+                    'type': 'Bug',
+                    'status': 'Todo'
+                },
+                {
+                    'id': 3,
+                    'boardId': 4,
                     'name': 'azert3',
                     'type': 'Feature',
                     'status': 'Done'
                 },
                 {
                     'id': 4,
+                    'boardId': 7,
                     'name': 'azert4',
                     'type': 'Feature',
                     'status': 'Todo'

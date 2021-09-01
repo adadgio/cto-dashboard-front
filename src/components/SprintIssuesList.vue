@@ -24,10 +24,14 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
 import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
+import { PropType } from '@vue/runtime-core'
 
 @Options({
     props: {
-        issues: Array as () => Array<Issue>,
+        issues: {
+            type: [] as PropType<Array<Issue>>,
+            default: [],
+        },
     },
 })
 export default class SprintIssuesList extends Vue {}
@@ -40,8 +44,8 @@ export default class SprintIssuesList extends Vue {}
     }
 
     .bug {
-        width: 15px;
-        height: 15px;
+        min-width: 15px;
+        min-height: 15px;
         border-radius: 100%;
         background-color: red;
         margin-top: auto;
@@ -50,8 +54,8 @@ export default class SprintIssuesList extends Vue {}
     }
 
     .feature {
-        width: 15px;
-        height: 15px;
+        min-width: 15px;
+        min-height: 15px;
         border-radius: 100%;
         background-color: green;
         margin-top: auto;
@@ -70,5 +74,6 @@ export default class SprintIssuesList extends Vue {}
 
     .contentLabel {
         margin: 0px;
+        overflow-wrap: break-word;
     }
 </style>
