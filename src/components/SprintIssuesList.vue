@@ -42,6 +42,7 @@ export default class SprintIssuesList extends Vue {}
     .issueContainer {
         text-align: left;
         width: 50%;
+        min-width: 150px;
     }
 
     .bug {
