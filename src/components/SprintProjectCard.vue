@@ -1,7 +1,12 @@
 <template>
     <div class="content">
-        <div class="on-going" v-if="onGoing"><p>En cours</p></div>
-        <div class="done" v-else>Fait</div>
+        <div class="on-going" v-if="onGoing">
+            <p class="Label">En cours</p>
+        </div>
+        <div class="done" v-else>
+            <p class="Label">Fait</p>
+        </div>
+
         <SprintIssueContentCard v-if="onGoing" class="features" :nbrFeature="project.nbFeatureTodo" :nbrBug="project.nbBugsTodo" />
         <SprintIssueContentCard v-else class="features" :nbrFeature="project.nbFeatureDone" :nbrBug="project.nbBugsDone" />
     </div>
@@ -30,17 +35,28 @@ export default class SprintProjectCard extends Vue {}
 
 <style scoped lang="scss">
 .content {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
 }
 .on-going {
-  color: white;
- background-color: red;
- height: 30px;
+    color: white;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    height: 30px;
 }
 .done {
-  color: white;
-  background-color: green;
+    color: white;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+.Label {
+    margin: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: bold;
 }
 </style>

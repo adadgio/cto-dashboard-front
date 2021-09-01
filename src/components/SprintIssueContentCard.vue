@@ -22,6 +22,8 @@ export default class SprintIssueContentCard extends Vue {}
 <style scoped lang="scss">
   .container {
     text-align: left;
+    padding-left: 5px;
+    background-color: rgb(231, 231, 231);
   }
 
   .bug {

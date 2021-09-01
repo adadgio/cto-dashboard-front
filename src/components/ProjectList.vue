@@ -1,7 +1,7 @@
 <template>
     <div id="list">
         <ul>
-            <li v-for="project in projects" :key="project.name">
+            <li class="projectList"  v-for="project in projects" :key="project.name">
                 <Project :project="project"/>
             </li>
         </ul>
@@ -12,6 +12,10 @@
     #list {
         width: 40%;
         margin-top: 50px;
+    }
+
+    .projectList {
+        list-style: none;
     }
 </style>
 
