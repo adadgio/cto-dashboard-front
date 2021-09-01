@@ -18,11 +18,14 @@
         justify-content: space-between;
     }
     .card {
-        width: 40%;
-        background-color: white;
+    width: 40%;
+    border-radius: 0.375rem;
+    background-color: white;
+    box-shadow: 0 0.1875rem 1.5rem black;
+
     }
     .card:hover {
-        background-color: rgb(199, 159, 159);
+        background-color: rgba(0, 0, 0, 0.151);
         transition: background-color 200ms ease-in-out;
     }
 </style>
