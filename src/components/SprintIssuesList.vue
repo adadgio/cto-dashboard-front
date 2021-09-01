@@ -22,13 +22,13 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import { Issue } from "@cto-dashboard-model/cto-dashboard-model";
+import { Options, Vue } from 'vue-class-component'
+import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
 
 @Options({
     props: {
         issues: Array as () => Array<Issue>,
-    }
+    },
 })
 export default class SprintIssuesList extends Vue {}
 </script>

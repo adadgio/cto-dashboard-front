@@ -19,9 +19,9 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import { Issue } from '@cto-dashboard-model/cto-dashboard-model';
-import SprintIssuesList from '@/components/SprintIssuesList.vue';
+import { Options, Vue } from 'vue-class-component'
+import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
+import SprintIssuesList from '@/components/SprintIssuesList.vue'
 
 @Options({
     props: {
@@ -29,7 +29,7 @@ import SprintIssuesList from '@/components/SprintIssuesList.vue';
         issues: Array as () => Array<Issue>,
     },
     components: {
-        SprintIssuesList
+        SprintIssuesList,
     },
     data() {
         return {
@@ -44,7 +44,7 @@ import SprintIssuesList from '@/components/SprintIssuesList.vue';
         this.bugListDone = this.issues.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Done')
         this.featureListTodo = this.issues.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Todo')
         this.featureListDone = this.issues.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Done')
-    }
+    },
 })
 export default class ProjectDetails extends Vue {}
 </script>
