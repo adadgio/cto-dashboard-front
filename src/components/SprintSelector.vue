@@ -12,7 +12,7 @@
             <div v-for="option of options" :key="option.id">
                 <div
                     @click="onSelect(option)" :checked="option.checked">
-                    <p :style="style" class="dropdownTitle">{{ option.name }}</p>
+                    <p  class="dropdownTitle">{{ option.name }}</p>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@ import { Vue, Options } from 'vue-class-component'
             type: Array,
             required: true,
         },
-        color: 'green',
+
     },
     data() {
         return {
@@ -67,24 +67,25 @@ export default class SprintSelector extends Vue {}
   position: relative;
   width: 100%;
   height: 80px;
-  border-radius: 8px;
   background: white;
   border: 1px solid #eee;
-  box-shadow: 10px 10px 0 0 rgba(black,.03);
+  box-shadow: 10px 0px 0 0 rgba(black,.03);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
   .dropdownTitle {
-    color: #FFF;
+    color: rgb(248, 246, 246);
     cursor: pointer;
-  }
-   .dropdownTitle:hover {
-    background-color: blue;
+     padding: 20px 0 20px 0;
+      margin: 0px;
+    &:hover {
+      background-color: #40a8f7;
+    }
   }
 
   .dropDownMenuButton {
-    font-size: inherit;
     background: none;
+    font-weight: bold;
     outline: none;
     border-radius: 4px;
     position: absolute;
