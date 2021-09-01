@@ -45,9 +45,12 @@ export default createStore({
         },
         // TODO: typé crédientials
         async login({ commit }, credentials) {
-            const response = await Axios.post(`${apiUrl}/login`, credentials)
-            localStorage.setItem('token', response.data.token)
-            commit('CHANGE_USER', credentials.username)
+            Axios.post(`${apiUrl}/login`, credentials).then((response) => {
+                if (response.status === 200 && response.data.token) {
+                    localStorage.setItem('token', response.data.token)
+                    commit('CHANGE_USER', credentials.username)
+                }
+            })
         },
     },
 })
