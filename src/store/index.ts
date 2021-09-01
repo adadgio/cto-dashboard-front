@@ -2,13 +2,20 @@ import { createStore } from 'vuex'
 import Axios from 'axios'
 
 const apiUrl = 'http://localhost:3000'
+const preloadedToken = localStorage.getItem('token')
 
-export default createStore({
+const store = createStore({
     state: {
-        user: null,
+        token: preloadedToken,
         projectlist: [],
         sprintList: [],
         issueList: [],
+        error: null,
+    },
+    getters: {
+        isAuthenticated: (state) => {
+            return state.token !== null
+        },
     },
     mutations: {
         FETCH_PROJECT(state, project) {
@@ -23,11 +30,15 @@ export default createStore({
             state.sprintList = sprint
         },
 
-        CHANGE_USER(state, user) {
-            state.user = user
+        SET_TOKEN(state, token) {
+            state.token = token
+            localStorage.setItem('token', token)
+        },
+
+        SET_ERROR(state, error) {
+            state.error = error
         },
     },
-
     actions: {
         async fetchProject({ commit }, sprintid: number) {
             const response = await Axios.get(
@@ -47,10 +58,15 @@ export default createStore({
         async login({ commit }, credentials) {
             Axios.post(`${apiUrl}/login`, credentials).then((response) => {
                 if (response.status === 200 && response.data.token) {
-                    localStorage.setItem('token', response.data.token)
-                    commit('CHANGE_USER', credentials.username)
+                    commit('SET_TOKEN', response.data.token)
+                } else {
+                    commit('SET_ERROR', 'Invalid login credentials')
                 }
+            }).catch((e) => {
+                commit('SET_ERROR', e.toString())
             })
         },
     },
 })
+
+export default store

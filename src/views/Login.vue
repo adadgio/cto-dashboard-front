@@ -23,6 +23,7 @@
             </div>
             <button id="btn-submit" type="submit">Login</button>
         </form>
+        <div class="error">{{error}}</div>
     </div>
 </template>
 <script lang="ts">
@@ -41,13 +42,20 @@ import { mapState } from 'vuex'
     methods: {
         onFormSubmit() {
             this.$store.dispatch('login', { username: this.username, password: this.password })
+                .then(() => {
+                    this.$router.push('/')
+                })
         },
     },
     computed: {
-        ...mapState(['login']),
+        ...mapState({
+            error: (state: any) => {
+                return state.error
+            },
+        }),
     },
 })
-export default class DashboardLogin extends Vue {}
+export default class Login extends Vue {}
 </script>
 
 <style scopped>
