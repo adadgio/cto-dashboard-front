@@ -1,8 +1,8 @@
 <template>
     <div class="issueContainer">
         <div>
-            <template v-for="issue in issues" :key="issue.id">
-                <ul class="list">
+            <ul class="list">
+                <template v-for="issue in issues" :key="issue.id">
                     <template v-if="issue.status === 'Todo'">
                         <li class="contentContainer">
                             <div class="bug"></div>
@@ -15,8 +15,8 @@
                             <p class="contentLabel">{{ issue.name }}</p>
                         </li>
                     </template>
-                </ul>
-            </template>
+                </template>
+            </ul>
         </div>
     </div>
 </template>
@@ -41,6 +41,7 @@ export default class SprintIssuesList extends Vue {}
 <style scoped lang="scss">
     .issueContainer {
         text-align: left;
+        width: 50%;
     }
 
     .bug {

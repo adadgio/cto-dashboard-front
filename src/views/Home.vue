@@ -25,7 +25,7 @@
                 {
                     'id': 1,
                     'boardId': 2,
-                    'name': 'azelmkjhvgcfvjbk nliubgyuf tdrtfygutfr gutfrfgut fygm jihuyt',
+                    'name': 'azelmkjhvgcfvjbk scdcz czzeczecez czecezcze cezcezczecez cezczeczec ezcezcezcezc cezczecezc',
                     'type': 'Bug',
                     'status': 'Done'
                 },

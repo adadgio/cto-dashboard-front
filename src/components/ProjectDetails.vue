@@ -103,7 +103,7 @@ export default class ProjectDetails extends Vue {}
     .issueListContainer {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         flex-wrap: wrap;
     }
 </style>

@@ -57,7 +57,7 @@ const store = createStore({
         // TODO: typé crédientials
         async login({ commit }, credentials) {
             Axios.post(`${apiUrl}/login`, credentials).then((response) => {
-                if (response.status === 200 && response.data.token) {
+                if (response.status === 200 && response.data) {
                     commit('SET_TOKEN', response.data.token)
                 } else {
                     commit('SET_ERROR', 'Invalid login credentials')
