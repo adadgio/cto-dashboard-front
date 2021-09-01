@@ -11,10 +11,8 @@
         <div class="dropdown" v-if="active" >
             <div v-for="option of options" :key="option.id">
                 <div
-                    :checked="option.checked"
-                    @click="onSelect(option)"
-                >
-                    {{ option.name }}
+                    @click="onSelect(option)" :checked="option.checked">
+                    <p  class="dropdownTitle">{{ option.name }}</p>
                 </div>
             </div>
         </div>
@@ -30,28 +28,32 @@ import { Vue, Options } from 'vue-class-component'
             type: Array,
             required: true,
         },
+
     },
     data() {
         return {
             selectedItems: [],
             checked: false,
+            selected: false,
             active: false,
+            style: {
+                color: this.color,
+            },
         }
     },
     methods: {
         onSelect(option: any) {
-            let test
             const id = this.selectedItems.map((x: any) => x.id)
-            if (id.includes(option.id) && option.checked) {
+            if (id.includes(option.id) && !option.checked) {
                 const index = this.selectedItems.indexOf(option)
-                test = this.selectedItems.splice(index, 1)
+                this.selectedItems.splice(index, 1)
             } else {
-                test = this.selectedItems.push(option)
+                this.selectedItems.push(option)
             }
-            console.log(test)
-            this.$emit('onChange', test)
+            this.$emit('onChange', this.selectedItems)
         },
         toggle() {
+            this.checked = !this.checked
             this.active = !this.active
         },
     },
@@ -65,16 +67,25 @@ export default class SprintSelector extends Vue {}
   position: relative;
   width: 100%;
   height: 80px;
-  border-radius: 8px;
   background: white;
   border: 1px solid #eee;
-  box-shadow: 10px 10px 0 0 rgba(black,.03);
+  box-shadow: 10px 0px 0 0 rgba(black,.03);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+  .dropdownTitle {
+    color: rgb(248, 246, 246);
+    cursor: pointer;
+     padding: 20px 0 20px 0;
+      margin: 0px;
+    &:hover {
+      background-color: #40a8f7;
+    }
+  }
+
   .dropDownMenuButton {
-    font-size: inherit;
     background: none;
+    font-weight: bold;
     outline: none;
     border-radius: 4px;
     position: absolute;
@@ -83,11 +94,10 @@ export default class SprintSelector extends Vue {}
     display: flex;
     align-items: center;
     padding: 0 70px 0 20px;
-    margin: 0;
     line-height: 1;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
   }
 
@@ -115,6 +125,8 @@ export default class SprintSelector extends Vue {}
   background-color: #080d0e;
   left: 0;
   right: 0;
+  z-index: 2;
+  margin-top: 80px;
 }
 .custom-select {
   display: flex;
