@@ -4,136 +4,8 @@
             :options="sprints"
         />
         <div class="projectContainer">
-            <ProjectList :projects="[
-                {
-                    'name': 'Projet de test 1',
-                    'nbBugsTodo': 2,
-                    'nbBugsDone': 3,
-                    'nbFeatureTodo': 1,
-                    'nbFeatureDone': 4,
-                },
-                {
-                    'name': 'Projet de test 2',
-                    'nbBugsTodo': 4,
-                    'nbBugsDone': 6,
-                    'nbFeatureTodo': 0,
-                    'nbFeatureDone': 7,
-                }
-            ]" @click="onClick" />
-            <ProjectDetails :projectName="'test'" :issues="[
-                {
-                    'id': 1,
-                    'boardId': 2,
-                    'name': 'azelmkjhvgcfvjbk scdcz czzeczecez czecezcze cezcezczecez cezczeczec ezcezcezcezc cezczecezc',
-                    'type': 'Bug',
-                    'status': 'Done'
-                },
-                {
-                    'id': 2,
-                    'boardId': 3,
-                    'name': 'hd',
-                    'type': 'Bug',
-                    'status': 'Todo'
-                },
-                {
-                    'id': 3,
-                    'boardId': 4,
-                    'name': 'ikyth',
-                    'type': 'Feature',
-                    'status': 'Done'
-                },
-                {
-                    'id': 1,
-                    'boardId': 2,
-                    'name': 'rtb',
-                    'type': 'Bug',
-                    'status': 'Done'
-                },
-                {
-                    'id': 2,
-                    'boardId': 3,
-                    'name': 'ce',
-                    'type': 'Bug',
-                    'status': 'Todo'
-                },
-                {
-                    'id': 3,
-                    'boardId': 4,
-                    'name': 'vgb',
-                    'type': 'Feature',
-                    'status': 'Done'
-                },
-                {
-                    'id': 1,
-                    'boardId': 2,
-                    'name': 'azert',
-                    'type': 'Bug',
-                    'status': 'Done'
-                },
-                {
-                    'id': 2,
-                    'boardId': 3,
-                    'name': 'azert2',
-                    'type': 'Bug',
-                    'status': 'Todo'
-                },
-                {
-                    'id': 3,
-                    'boardId': 4,
-                    'name': 'azert3',
-                    'type': 'Feature',
-                    'status': 'Done'
-                },
-                {
-                    'id': 1,
-                    'boardId': 2,
-                    'name': 'azert',
-                    'type': 'Bug',
-                    'status': 'Done'
-                },
-                {
-                    'id': 2,
-                    'boardId': 3,
-                    'name': 'azert2',
-                    'type': 'Bug',
-                    'status': 'Todo'
-                },
-                {
-                    'id': 3,
-                    'boardId': 4,
-                    'name': 'azert3',
-                    'type': 'Feature',
-                    'status': 'Done'
-                },
-                {
-                    'id': 1,
-                    'boardId': 2,
-                    'name': 'azert',
-                    'type': 'Bug',
-                    'status': 'Done'
-                },
-                {
-                    'id': 2,
-                    'boardId': 3,
-                    'name': 'azert2',
-                    'type': 'Bug',
-                    'status': 'Todo'
-                },
-                {
-                    'id': 3,
-                    'boardId': 4,
-                    'name': 'azert3',
-                    'type': 'Feature',
-                    'status': 'Done'
-                },
-                {
-                    'id': 4,
-                    'boardId': 7,
-                    'name': 'azert4',
-                    'type': 'Feature',
-                    'status': 'Todo'
-                }
-            ]" />
+            <ProjectList :projects="projects" @click="onProjectClick" />
+            <ProjectDetails :projectName="'test'" :issues="issues" />
         </div>
     </div>
 
@@ -141,6 +13,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
+import { mapState } from 'vuex'
 import { Sprint } from '@cto-dashboard-model/cto-dashboard-model'
 import ProjectList from '@/components/ProjectList.vue'
 import SprintSelector from '@/components/SprintSelector.vue'
@@ -165,15 +38,29 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
             ],
         }
     },
+    mounted() {
+        this.$store.dispatch('fetchProjects')
+    },
     computed: {
-        project() {
-            return this.store.state.projectlist
-        },
-        issue() {
-            return this.store.state.issueList
-        },
+        // projects() {
+        //    return this.$store.state.projectlist
+        // },
+        // issues() {
+        //    return this.$store.state.issueList
+        // },
+        ...mapState({
+            projects: (state: any) => {
+                return state.projectlist
+            },
+            issues: (state: any) => {
+                return state.issueList
+            },
+        }),
     },
     methods: {
+        onProjectClick() {
+            // @todo Open project detailed view
+        },
         onSelectChange(e: Sprint) {
             console.log(e)
             this.state.action.fetchProject(e.id)

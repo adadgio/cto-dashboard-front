@@ -2,12 +2,12 @@
     <div id="navbar" :style="{'fontSize': isScrolled ? '0px' : '55px',  'box-shadow': isScrolled ?  '0 8px 6px -6px black' : '' , 'background-color': 'white'}">
         <!-- <a href="#default" id="logo" :style="{'fontSize': isScrolled ? '20px' : '35px' }">360 Medics</a> -->
 
-        <layout id="navtext">
+        <div id="navtext">
             <router-link to="/">Home</router-link>
             <router-link to="/about">About us</router-link>
             <router-link to="/about">About us</router-link>
             <router-link to="/about">About us</router-link>
-        </layout>
+        </div>
     </div>
 </template>
 

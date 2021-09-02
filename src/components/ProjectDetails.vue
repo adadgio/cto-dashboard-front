@@ -2,15 +2,15 @@
     <div class="container">
         <p class="title">{{ projectName }}</p>
         <div class="contentContainer">
-            <p class="label">Bug :</p>
+            <p class="label">Bugs :</p>
             <div class="issueListContainer">
-                <SprintIssuesList :issues="bugListTodo" />
-                <SprintIssuesList :issues="bugListDone" />
+                <!--<SprintIssuesList :issues="bugListTodo" />
+                <SprintIssuesList :issues="bugListDone" />-->
             </div>
-            <p class="label">Feature :</p>
+            <p class="label">Features :</p>
             <div class="issueListContainer">
-                <SprintIssuesList :issues="featureListTodo" />
-                <SprintIssuesList :issues="featureListDone" />
+                <!--<SprintIssuesList :issues="featureListTodo" />
+                <SprintIssuesList :issues="featureListDone" />-->
             </div>
         </div>
     </div>
@@ -18,20 +18,30 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
+import { mapState } from 'vuex'
 import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
-import { PropType } from '@vue/runtime-core'
+// import { PropType } from '@vue/runtime-core'
 import SprintIssuesList from '@/components/SprintIssuesList.vue'
 
 @Options({
     props: {
-        projectName: String,
         issues: {
-            type: [] as PropType<Array<Issue>>,
+            type: [],
             default: [],
+        },
+        projectName: {
+            type: String,
         },
     },
     components: {
         SprintIssuesList,
+    },
+    computed: {
+        ...mapState({
+            bugListTodo2: (state: any) => {
+                return state.getters.getBugListTodo
+            },
+        }),
     },
     data() {
         return {

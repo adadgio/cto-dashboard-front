@@ -39,11 +39,11 @@ import { Vue, Options } from 'vue-class-component'
     },
     computed: {
         sprint() {
-            return this.store.state.sprintList
+            return this.$store.state.sprintList
         },
     },
     mounted() {
-        this.$store.dispatch('fetchSprint')
+        this.$store.dispatch('fetchSprints')
     },
 })
 export default class SprintSelector extends Vue {}
