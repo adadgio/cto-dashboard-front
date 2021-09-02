@@ -26,7 +26,7 @@ export default class SprintIssueContentCard extends Vue {}
   }
 
   .bug {
-    color: red;
+    color: crimson;
   }
 
   .feature {

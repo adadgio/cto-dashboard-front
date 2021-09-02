@@ -43,7 +43,7 @@ export default class SprintIssuesList extends Vue {}
         width: 15px;
         height: 15px;
         border-radius: 100%;
-        background-color: red;
+        background-color: crimson;
         margin-top: auto;
         margin-bottom: auto;
         margin-right: 10px;
@@ -53,7 +53,7 @@ export default class SprintIssuesList extends Vue {}
         width: 15px;
         height: 15px;
         border-radius: 100%;
-        background-color: green;
+        background-color: #10b981;
         margin-top: auto;
         margin-bottom: auto;
         margin-right: 10px;

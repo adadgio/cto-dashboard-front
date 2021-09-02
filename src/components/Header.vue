@@ -60,7 +60,7 @@ export default class Header extends Vue {
   /* float: left; */
 
   color: black;
-  padding: 12px;
+  padding: 15px;
   text-decoration: none;
   font-size: 18px;
   /* line-height: 25px; */
@@ -79,7 +79,7 @@ export default class Header extends Vue {
 }
 
 #navbar a:hover {
-  background-color: #ddd;
+  background-color: #10b981;
   color: black;
 }
 

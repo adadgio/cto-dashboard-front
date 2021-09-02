@@ -50,7 +50,7 @@ export default class SprintProjectCard extends Vue {}
 }
 .done {
     color: white;
-    background-color: green;
+    background-color: #10b981;
     display: flex;
     justify-content: center;
     height: 30px;
