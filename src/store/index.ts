@@ -50,8 +50,8 @@ const store = createStore({
             const response = await Axios.get(`${apiUrl}/sprintlist`)
             commit('FETCH_SPRINT', response.data)
         },
-        async fetchIssue({ commit }) {
-            const response = await Axios.get(`${apiUrl}/issuelist`)
+        async fetchIssue({ commit }, sprintid: number) {
+            const response = await Axios.get(`${apiUrl}/issuelist/sprintId=${sprintid}`)
             commit('FETCH_ISSUE', response.data)
         },
         // TODO: typé crédientials

@@ -43,7 +43,7 @@ import { Vue, Options } from 'vue-class-component'
             } else {
                 this.selectedItems.push(option)
             }
-            this.$emit('onChange', this.selectedItems)
+            this.$emit('onChange', option)
         },
         toggle() {
             this.checked = !this.checked

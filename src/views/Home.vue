@@ -2,7 +2,6 @@
     <div>
         <SprintSelector
             :options="sprints"
-
         />
         <div class="projectContainer">
             <ProjectList :projects="[
@@ -20,7 +19,7 @@
                     'nbFeatureTodo': 0,
                     'nbFeatureDone': 7,
                 }
-            ]" />
+            ]" @click="onClick" />
             <ProjectDetails :projectName="'test'" :issues="[
                 {
                     'id': 1,
@@ -147,9 +146,6 @@ import ProjectList from '@/components/ProjectList.vue'
 import SprintSelector from '@/components/SprintSelector.vue'
 import ProjectDetails from '@/components/ProjectDetails.vue'
 
-export interface SprintSelectorEvent {
-    selection: Array<Sprint>
-}
 @Options({
     components: {
         ProjectList,
@@ -169,9 +165,19 @@ export interface SprintSelectorEvent {
             ],
         }
     },
+    computed: {
+        project() {
+            return this.store.state.projectlist
+        },
+        issue() {
+            return this.store.state.issueList
+        },
+    },
     methods: {
-        onSelectChange(e: SprintSelectorEvent) {
+        onSelectChange(e: Sprint) {
             console.log(e)
+            this.state.action.fetchProject(e.id)
+            this.state.action.fetchIssue(e.id)
         },
     },
 })
