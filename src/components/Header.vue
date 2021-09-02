@@ -59,7 +59,8 @@ export default class Header extends Vue {
 #navbar a {
   /* float: left; */
 
-  color: black;
+  color: #673AB7;
+  font-family: inherit;
   padding: 15px;
   text-decoration: none;
   font-size: 18px;

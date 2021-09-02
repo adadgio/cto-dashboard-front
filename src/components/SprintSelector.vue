@@ -5,7 +5,7 @@
             v-model="value"
             :createTag="true"
             mode="tags"
-            placeholder="Selectionnez un sprint"
+            placeholder="Selectionner un sprint"
             :options="[
                 { value: 'sprint1', label: 'Sprint 1' },
                 { value: 'sprint2', label: 'Sprint 2' },
@@ -65,8 +65,8 @@ export default class SprintSelector extends Vue {}
     min-height: calc(var(--ms-border-width, 1px)*2 + var(--ms-font-size, 1rem)*var(--ms-line-height, 1.375) + var(--ms-py, .5rem)*2);
 }
 
-.multiselect-tag {
-    background-color: #673AB7 !important;
+.multiselect.multiselect-tag{
+    background: #673AB7 !important;
     }
 
 .custom-select {

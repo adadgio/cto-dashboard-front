@@ -18,7 +18,7 @@
         justify-content: space-between;
     }
     .card {
-    width: 40%;
+    width: 45%;
     border-radius: 0.375rem;
     background-color: white;
     box-shadow: 0 0.1875rem 0.5rem black;
