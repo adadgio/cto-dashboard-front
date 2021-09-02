@@ -2,6 +2,7 @@
     <div class="issueContainer">
         <div>
             <ul class="list">
+
                 <template v-for="issue in issues" :key="issue.id">
                     <template v-if="issue.status === 'Todo'">
                         <li class="contentContainer">
@@ -9,6 +10,7 @@
                             <p class="contentLabel">{{ issue.name }}</p>
                         </li>
                     </template>
+
                     <template v-if="issue.status === 'Done'">
                         <li class="contentContainer">
                             <div class="feature"></div>
@@ -29,7 +31,7 @@ import { PropType } from '@vue/runtime-core'
 @Options({
     props: {
         issues: {
-            type: [] as PropType<Array<Issue>>,
+            type: [] as PropType<Issue>,
             default: [],
         },
     },
