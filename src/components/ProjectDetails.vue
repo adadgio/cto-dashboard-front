@@ -4,13 +4,13 @@
         <div class="contentContainer">
             <p class="label">Bugs :</p>
             <div class="issueListContainer">
-                <!--<SprintIssuesList :issues="bugListTodo" />
-                <SprintIssuesList :issues="bugListDone" />-->
+                <SprintIssuesList :issues="issues.getBugListTodo" />
+                <SprintIssuesList :issues="issues.getBugListDone" />
             </div>
             <p class="label">Features :</p>
             <div class="issueListContainer">
-                <!--<SprintIssuesList :issues="featureListTodo" />
-                <SprintIssuesList :issues="featureListDone" />-->
+                <SprintIssuesList :issues="issues.getFeatureListTodo" />
+                <SprintIssuesList :issues="issues.getFeatureListDone" />
             </div>
         </div>
     </div>
@@ -18,44 +18,19 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
-import { mapState } from 'vuex'
-import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
+// import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
 // import { PropType } from '@vue/runtime-core'
 import SprintIssuesList from '@/components/SprintIssuesList.vue'
 
 @Options({
     props: {
-        issues: {
-            type: [],
-            default: [],
-        },
+        issues: Object,
         projectName: {
             type: String,
         },
     },
     components: {
         SprintIssuesList,
-    },
-    computed: {
-        ...mapState({
-            bugListTodo2: (state: any) => {
-                return state.getters.getBugListTodo
-            },
-        }),
-    },
-    data() {
-        return {
-            bugListTodo: Array as () => Array<Issue>,
-            bugListDone: Array as () => Array<Issue>,
-            featureListTodo: Array as () => Array<Issue>,
-            featureListDone: Array as () => Array<Issue>,
-        }
-    },
-    mounted() {
-        this.bugListTodo = this.issues.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Todo')
-        this.bugListDone = this.issues.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Done')
-        this.featureListTodo = this.issues.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Todo')
-        this.featureListDone = this.issues.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Done')
     },
 })
 export default class ProjectDetails extends Vue {}

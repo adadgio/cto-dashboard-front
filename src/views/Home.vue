@@ -40,6 +40,7 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
     },
     mounted() {
         this.$store.dispatch('fetchProjects')
+        this.$store.dispatch('fetchIssues') // TODO : mettre la ligne dans onSelectChange
     },
     computed: {
         // projects() {
@@ -64,7 +65,6 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
         onSelectChange(e: Sprint) {
             console.log(e)
             this.state.action.fetchProject(e.id)
-            this.state.action.fetchIssue(e.id)
         },
     },
 })
