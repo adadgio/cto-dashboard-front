@@ -12,12 +12,22 @@
     </div>
 </template>
 <style scoped>
+    .project {
+        border: 3px solid rgba(0,0,0,0);
+        padding: 10px;
+        transition: border 200ms ease-in-out;
+        border-radius: 10px;
+    }
+
+    .project:hover {
+        border: 3px solid #673AB7;
+        cursor: pointer;
+    }
+
     #project-cards {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: rgba(0, 0, 0, 0.151);
-        transition: background-color 200ms ease-in-out;
     }
 
     .card {
