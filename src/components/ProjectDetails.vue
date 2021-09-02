@@ -18,8 +18,6 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
-// import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
-// import { PropType } from '@vue/runtime-core'
 import SprintIssuesList from '@/components/SprintIssuesList.vue'
 
 @Options({
@@ -44,9 +42,7 @@ export default class ProjectDetails extends Vue {}
         width: 40%;
         border-radius: 20px;
         text-align: left;
-        overflow-y: auto;
-        box-shadow: 0 0.1875rem 0.5rem black;
-        height: auto;
+        height: 70vh;
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 10px;
@@ -63,11 +59,13 @@ export default class ProjectDetails extends Vue {}
         justify-content: center;
         background-color: #673AB7;
         color: white;
-    }
-
-    .title {
-        font-size: 20px;
-        vertical-align: middle;
+        margin: 0px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 35px;
+        vertical-align: text-top;
+        align-items: center;
+        box-shadow: 0 0.1875rem 0.5rem black;
     }
 
     .contentContainer {
@@ -75,10 +73,12 @@ export default class ProjectDetails extends Vue {}
         flex-direction: column;
         border-style: none;
         overflow-y: auto;
+        overflow-x: hidden;
         height: 90%;
         background-color: #e7e7e7;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+        box-shadow: 0 0.1875rem 0.5rem black;
     }
 
     .label {
