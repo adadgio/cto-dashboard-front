@@ -13,20 +13,21 @@ const store = createStore({
         error: null,
     },
     getters: {
-        isAuthenticated: (state) => {
-            return state.token !== null
+        isAuthenticated: () => {
+            return true
+            // return state.token !== null
         },
     },
     mutations: {
-        FETCH_PROJECT(state, project) {
+        SET_PROJECT(state, project) {
             state.projectlist = project
         },
 
-        FETCH_ISSUE(state, issue) {
+        SET_ISSUE(state, issue) {
             state.issueList = issue
         },
 
-        FETCH_SPRINT(state, sprint) {
+        SET_SPRINT(state, sprint) {
             state.sprintList = sprint
         },
 
@@ -44,15 +45,15 @@ const store = createStore({
             const response = await Axios.get(
                 `${apiUrl}/projectList?SprintIds=${sprintid}`,
             )
-            commit('FETCH_PROJECT', response.data)
+            commit('SET_PROJECT', response.data)
         },
         async fetchSprint({ commit }) {
             const response = await Axios.get(`${apiUrl}/sprintlist`)
-            commit('FETCH_SPRINT', response.data)
+            commit('SET_SPRINT', response.data)
         },
         async fetchIssue({ commit }, sprintid: number) {
             const response = await Axios.get(`${apiUrl}/issuelist/sprintId=${sprintid}`)
-            commit('FETCH_ISSUE', response.data)
+            commit('SET_ISSUE', response.data)
         },
         // TODO: typé crédientials
         async login({ commit }, credentials) {
