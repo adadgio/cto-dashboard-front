@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import Axios from 'axios'
+import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
 import PROJECTS_MOCKUP from '../mockup/projects.mockup'
 import ISSUES_MOCKUP from '../mockup/issues.mockup'
 
@@ -11,7 +12,12 @@ const store = createStore({
         token: preloadedToken,
         projectlist: [],
         sprintList: [],
-        issueList: [],
+        issueList: {
+            getBugListTodo: [],
+            getBugListDone: [],
+            getFeatureListTodo: [],
+            getFeatureListDone: [],
+        },
         error: null,
     },
     getters: {
@@ -19,18 +25,17 @@ const store = createStore({
             return true
             // return state.token !== null
         },
-        getBugListTodo(state) {
-            // fitler state.iissueList
-            console.log(state)
-        },
     },
     mutations: {
         SET_PROJECTS(state, project) {
             state.projectlist = project
         },
 
-        SET_ISSUES(state, issue) {
-            state.issueList = issue
+        SET_ISSUES(state, issues) {
+            state.issueList.getBugListTodo = issues.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Todo')
+            state.issueList.getBugListDone = issues.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Done')
+            state.issueList.getFeatureListTodo = issues.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Todo')
+            state.issueList.getFeatureListDone = issues.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Done')
         },
 
         SET_SPRINTS(state, sprint) {

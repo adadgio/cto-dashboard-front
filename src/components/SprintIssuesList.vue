@@ -44,14 +44,14 @@ export default class SprintIssuesList extends Vue {}
     .issueContainer {
         text-align: left;
         width: 50%;
-        min-width: 150px;
+        min-width: 200px;
     }
 
     .bug {
         min-width: 15px;
         min-height: 15px;
         border-radius: 100%;
-        background-color: crimson;
+        background-color: cornflowerblue;
         margin-top: auto;
         margin-bottom: auto;
         margin-right: 10px;
