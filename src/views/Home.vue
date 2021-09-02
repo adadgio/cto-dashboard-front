@@ -25,7 +25,6 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
         SprintSelector,
         ProjectDetails,
     },
-
     data() {
         return {
             sprints: [

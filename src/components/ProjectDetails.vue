@@ -20,13 +20,13 @@
 import { Options, Vue } from 'vue-class-component'
 import { mapState } from 'vuex'
 import { Issue } from '@cto-dashboard-model/cto-dashboard-model'
-// import { PropType } from '@vue/runtime-core'
+import { PropType } from '@vue/runtime-core'
 import SprintIssuesList from '@/components/SprintIssuesList.vue'
 
 @Options({
     props: {
         issues: {
-            type: [],
+            type: Object as PropType<Array<Issue>>,
             default: [],
         },
         projectName: {

@@ -31,7 +31,7 @@ import { PropType } from '@vue/runtime-core'
 @Options({
     props: {
         issues: {
-            type: [] as PropType<Issue>,
+            type: Object as PropType<Issue>, // [] as PropType<Issue>,
             default: [],
         },
     },
