@@ -21,8 +21,7 @@
     width: 40%;
     border-radius: 0.375rem;
     background-color: white;
-    box-shadow: 0 0.1875rem 1.5rem black;
-
+    box-shadow: 0 0.1875rem 0.5rem black;
     }
     .card:hover {
         background-color: rgba(0, 0, 0, 0.151);

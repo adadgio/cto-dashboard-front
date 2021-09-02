@@ -5,6 +5,7 @@
             v-model="value"
             :createTag="true"
             mode="tags"
+            placeholder="Selectionnez un sprint"
             :options="[
                 { value: 'sprint1', label: 'Sprint 1' },
                 { value: 'sprint2', label: 'Sprint 2' },
@@ -47,7 +48,7 @@ export default class SprintSelector extends Vue {}
   height: 5px;
 }
 .multiselect {
-      position: relative;
+    position: relative;
     margin: 0 auto;
     width: 60%;
     height: 60%;
@@ -64,17 +65,22 @@ export default class SprintSelector extends Vue {}
     min-height: calc(var(--ms-border-width, 1px)*2 + var(--ms-font-size, 1rem)*var(--ms-line-height, 1.375) + var(--ms-py, .5rem)*2);
 }
 
+.multiselect-tag {
+    background-color: #673AB7 !important;
+    }
+
 .custom-select {
   display: flex;
   align-items: center;
   flex-direction: row;
   position: relative;
+  border-radius: 10px;
   width: 100%;
   text-align: left;
   outline: none;
   height: 60px;
   line-height: 47px;
-  background-color:#10b981;
+  background-color:#673AB7;
 }
 
 </style>

@@ -79,8 +79,9 @@ export default class Header extends Vue {
 }
 
 #navbar a:hover {
-  background-color: #10b981;
-  color: black;
+  background-color: #673AB7;
+  color: white;
+  transition: 0.4s;
 }
 
 #navbar a.active {

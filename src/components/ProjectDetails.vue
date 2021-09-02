@@ -53,14 +53,13 @@ export default class ProjectDetails extends Vue {}
 <style scoped lang="scss">
     .container {
         margin-top: 50px;
-        margin-left: 20px;
+        margin-left: 40px;
         width: 40%;
-        border-style: solid;
-        border-color: black;
-        border-width: 1px;
+        border-radius: 20px;
         text-align: left;
         overflow-y: auto;
-        height: 85vh;
+        box-shadow: 0 0.1875rem 0.5rem black;
+        height: auto;
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 10px;
@@ -71,12 +70,14 @@ export default class ProjectDetails extends Vue {}
         border-width: 1px;
         text-align: center;
         font-weight: bold;
-        height: 50px;
+        display: flex;
+        justify-content: center;
+        background-color: #673AB7;
+        color: white;
     }
 
     .title {
         font-size: 20px;
-        height: 50px;
         vertical-align: middle;
     }
 
