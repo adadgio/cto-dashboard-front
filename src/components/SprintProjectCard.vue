@@ -37,26 +37,24 @@ export default class SprintProjectCard extends Vue {}
 .content {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    border-radius: 10px;
+      border-radius: 0.375rem;
+
 }
 .on-going {
     color: white;
-    background-color: red;
+    background-color:cornflowerblue;
     display: flex;
     justify-content: center;
     height: 30px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+     border-radius: 0.375rem;
 }
 .done {
     color: white;
-    background-color: green;
+    background-color: #10b981;
     display: flex;
     justify-content: center;
     height: 30px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+     border-radius: 0.375rem;
 }
 .Label {
     margin: 0px;
