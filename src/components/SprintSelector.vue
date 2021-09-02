@@ -1,54 +1,41 @@
 <template>
+    <div id="divider"></div>
     <div class="custom-select">
-        <div class=" select-tags" v-for="item of selectedItems" :key="item.id">
-            <p class="tags">{{ item.name }}</p>
-        </div>
+        <Multiselect
+            v-model="value"
+            :createTag="true"
+            mode="tags"
+            placeholder="Selectionner un sprint"
+            :options="[
+                { value: 'sprint1', label: 'Sprint 1' },
+                { value: 'sprint2', label: 'Sprint 2' },
+                { value: 'sprint3', label: 'Sprint 3' },
+            ]"
+        />
     </div>
-    <section class="dropDownMenuWrapper">
-        <!-- Dropdown toggle button -->
-        <button class="dropDownMenuButton" @click="toggle"> Select your sprint</button>
-        <!-- if active open the drop down -->
-        <div class="dropdown" v-if="active" >
-            <div v-for="sprint of this.store.state.sprintList" :key="sprint.id">
-                <div
-                    @click="onSelect(sprint)" :checked="sprint.checked">
-                    <p  class="dropdownTitle">{{ sprint.name }}</p>
-                </div>
-            </div>
-        </div>
-    </section>
 </template>
 
 <script lang="ts">
+import Multiselect from '@vueform/multiselect'
 import { Vue, Options } from 'vue-class-component'
 
 @Options({
+    components: {
+        Multiselect,
+    },
+    props: {
+        options: {
+            type: Array,
+            required: true,
+        },
+
+    },
     data() {
         return {
-            selectedItems: [],
-            checked: false,
-            selected: false,
-            active: false,
-            style: {
-                color: this.color,
-            },
+            value: null,
         }
     },
     methods: {
-        onSelect(option: any) {
-            const id = this.selectedItems.map((x: any) => x.id)
-            if (id.includes(option.id) && !option.checked) {
-                const index = this.selectedItems.indexOf(option)
-                this.selectedItems.splice(index, 1)
-            } else {
-                this.selectedItems.push(option)
-            }
-            this.$emit('onChange', option)
-        },
-        toggle() {
-            this.checked = !this.checked
-            this.active = !this.active
-        },
     },
     computed: {
         sprint() {
@@ -64,82 +51,44 @@ export default class SprintSelector extends Vue {}
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.dropDownMenuWrapper {
-position: relative;
-width: 100%;
-height: 80px;
-background: white;
-border: 1px solid #eee;
-box-shadow: 10px 0px 0 0 rgba(black,.03);
--webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+#divider {
+  height: 5px;
 }
-
-.dropdownTitle {
-color: rgb(248, 246, 246);
-cursor: pointer;
-padding: 20px 0 20px 0;
-margin: 0px;
-&:hover {
-background-color: #40a8f7;
-}
-}
-
-.dropDownMenuButton {
-    background: none;
-    font-weight: bold;
-    outline: none;
-    border-radius: 4px;
-    position: absolute;
-    top: 0;
-    left: 0;
+.multiselect {
+    position: relative;
+    margin: 0 auto;
+    width: 60%;
+    height: 60%;
     display: flex;
     align-items: center;
-    padding: 0 70px 0 20px;
-    line-height: 1;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    justify-content: flex-end;
+    box-sizing: border-box;
     cursor: pointer;
+    outline: none;
+    border: var(--ms-border-width,1px) solid var(--ms-border-color,#d1d5db);
+    border-radius: var(--ms-radius,4px);
+    background: var(--ms-bg,#fff);
+    font-size: var(--ms-font-size,1rem);
+    min-height: calc(var(--ms-border-width, 1px)*2 + var(--ms-font-size, 1rem)*var(--ms-line-height, 1.375) + var(--ms-py, .5rem)*2);
 }
 
-.select-tags {
-border-radius: 50px;
-height: 10px;
-width: 100px;
-padding: 10px;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #40a8f7;
-margin-left: 10px;
-}
-.tags {
-display: flex;
-color: #fff;
-font-weight: bold;
-justify-content: center;
-}
-.dropdown {
-color: #fff;
-overflow: hidden;
-position: absolute;
-background-color: #080d0e;
-left: 0;
-right: 0;
-z-index: 2;
-margin-top: 80px;
-}
+.multiselect.multiselect-tag{
+    background: #673AB7 !important;
+    }
+
 .custom-select {
-display: flex;
-align-items: center;
-flex-direction: row;
-position: relative;
-width: 100%;
-text-align: left;
-outline: none;
-height: 60px;
-line-height: 47px;
-background-color: #dddddd;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  height: 60px;
+  line-height: 47px;
+  background-color:#673AB7;
 }
 
 </style>
+<style src="@vueform/multiselect/themes/default.css"></style>

@@ -1,21 +1,18 @@
 <template>
     <div>
+        <Header />
         <router-view/>
     </div>
 </template>
 
-<script lang="ts">
-// import { User } from '@cto-dashboard-model/cto-dashboard-model'
-import { Options, Vue } from 'vue-class-component'
+<script>
+import Header from '@/components/Header.vue'
 
-@Options({
-    // computed: {
-    //    user(): any {
-    //        return this.$store.state.user
-    //    },
-    // },
-})
-export default class App extends Vue {}
+export default {
+    components: {
+        Header,
+    },
+}
 </script>
 <style lang="scss">
 #app {

@@ -19,16 +19,13 @@
     }
 
     .card {
-        width: 40%;
+    width: 45%;
+    border-radius: 0.375rem;
+    background-color: white;
+    box-shadow: 0 0.1875rem 0.5rem black;
     }
-
-    .project {
-        border-radius: 10px;
-        padding: 5px;
-    }
-
-    .project:hover {
-        background-color: #e7e7e7;
+    .card:hover {
+        background-color: rgba(0, 0, 0, 0.151);
         transition: background-color 200ms ease-in-out;
     }
 
