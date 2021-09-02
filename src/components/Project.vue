@@ -16,6 +16,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        background-color: rgba(0, 0, 0, 0.151);
+        transition: background-color 200ms ease-in-out;
     }
 
     .card {
@@ -23,10 +25,6 @@
     border-radius: 0.375rem;
     background-color: white;
     box-shadow: 0 0.1875rem 0.5rem black;
-    }
-    .card:hover {
-        background-color: rgba(0, 0, 0, 0.151);
-        transition: background-color 200ms ease-in-out;
     }
 
 </style>

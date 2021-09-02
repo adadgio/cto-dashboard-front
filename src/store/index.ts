@@ -13,9 +13,9 @@ const store = createStore({
         error: null,
     },
     getters: {
-        isAuthenticated: (state) => {
-            return state.token !== null
-        },
+        // isAuthenticated: (state) => {
+        //     return state.token !== null
+        // },
     },
     mutations: {
         FETCH_PROJECT(state, project) {
