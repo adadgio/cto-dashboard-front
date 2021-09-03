@@ -5,6 +5,7 @@ import PROJECTS_MOCKUP from '../mockup/projects.mockup'
 import ISSUES_MOCKUP from '../mockup/issues.mockup'
 
 const apiUrl = 'http://localhost:3000'
+const apiUrlSprint = 'http://localhost:3000/sprintList?'
 const preloadedToken = localStorage.getItem('token')
 
 const store = createStore({
@@ -31,6 +32,9 @@ const store = createStore({
         },
         getFeatureListDone: (state, id: string) => {
             return state.issueList.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Done' && issue.projectId === id)
+        },
+        getSprints: (state) => {
+            return state.sprintList.map((x: any) => x.name)
         },
     },
     mutations: {
@@ -66,7 +70,7 @@ const store = createStore({
             commit('SET_PROJECTS', PROJECTS_MOCKUP)
         },
         async fetchSprints({ commit }) {
-            const response = await Axios.get(`${apiUrl}/sprintlist`)
+            const response = await Axios.get(`${apiUrlSprint}projectIds=10000`)
             commit('SET_SPRINTS', response.data)
         },
         async fetchIssues({ commit } /* sprintid: number */) {

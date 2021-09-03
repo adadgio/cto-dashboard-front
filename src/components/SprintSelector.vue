@@ -2,22 +2,22 @@
     <div id="divider"></div>
     <div class="custom-select">
         <Multiselect
+            @change="test"
             v-model="value"
             :createTag="true"
             mode="tags"
+
             placeholder="Selectionner un sprint"
-            :options="[
-                { value: 'sprint1', label: 'Sprint 1' },
-                { value: 'sprint2', label: 'Sprint 2' },
-                { value: 'sprint3', label: 'Sprint 3' },
-            ]"
+            :options="sprintList.map((sprint) =>  ({value: {name: sprint.name, id: sprint.projectId}, label: sprint.name }))"
         />
     </div>
 </template>
 
 <script lang="ts">
 import Multiselect from '@vueform/multiselect'
+
 import { Vue, Options } from 'vue-class-component'
+import { mapState } from 'vuex'
 
 @Options({
     components: {
@@ -30,21 +30,32 @@ import { Vue, Options } from 'vue-class-component'
         },
 
     },
+
     data() {
         return {
+
             value: null,
+            sprintListData: [],
         }
     },
     methods: {
+
+        test() {
+            setTimeout(() => {
+                console.log(this.value)
+            }, 1)
+        },
+
     },
     computed: {
-        sprint() {
-            return this.$store.state.sprintList
-        },
+        ...mapState(['sprintList']),
+
     },
+
     mounted() {
         this.$store.dispatch('fetchSprints')
     },
+
 })
 export default class SprintSelector extends Vue {}
 </script>
