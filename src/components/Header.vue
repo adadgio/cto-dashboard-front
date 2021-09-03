@@ -1,8 +1,8 @@
 <template>
     <div id="navbar" :style="{'fontSize': isScrolled ? '0px' : '55px',  'box-shadow': isScrolled ?  '0 8px 6px -6px black' : '' , 'background-color': 'white'}">
-        <!-- <a href="#default" id="logo" :style="{'fontSize': isScrolled ? '20px' : '35px' }">360 Medics</a> -->
 
         <div id="navtext">
+            <a to="/" id="logo" :style="{'fontSize': isScrolled ? '20px' : '25px' }">360 Dashboard</a>
             <router-link to="/">Home</router-link>
             <router-link to="/about">About us</router-link>
             <router-link to="/about">About us</router-link>
@@ -71,33 +71,40 @@ export default class Header extends Vue {
 #navtext {
     display: flex;
     justify-content: center;
+    font-weight: bold;
 }
 
 #navbar #logo {
   font-size: 35px;
   font-weight: bold;
   transition: 0.1s;
+  float: left;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
 }
 
 #navbar a:hover {
   background-color: #673AB7;
   color: white;
-  transition: 0.4s;
+  transition: 0.6s;
+  border-radius: 10px;
+  transition: 0.6s;
 }
 
 #navbar a.active {
   background-color: dodgerblue;
-  color: rgb(241, 19, 19);
+  color: rgb(255, 255, 255);
 }
 
 #navbar-link {
   display: flex;
   justify-content: center;
 }
-#responsiveNav {
+/* #responsiveNav {
   display: none;
-}
-@media screen and (max-width: 640px) {
+} */
+/* @media screen and (max-width: 640px) {
   #navbar {
     display: none;
   }
@@ -105,5 +112,5 @@ export default class Header extends Vue {
     display: block;
     height: 10%;
   }
-}
+} */
 </style>

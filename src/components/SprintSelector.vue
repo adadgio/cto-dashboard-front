@@ -52,7 +52,7 @@ export default class SprintSelector extends Vue {}
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 #divider {
-  height: 5px;
+  height: 10px;
 }
 .multiselect {
     position: relative;

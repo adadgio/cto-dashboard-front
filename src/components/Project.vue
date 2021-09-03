@@ -20,8 +20,10 @@
     }
 
     .project:hover {
-        border: 3px solid #673AB7;
         cursor: pointer;
+        background-color: #683ab73b;
+        transition: 0.4s;
+
     }
 
     #project-cards {
