@@ -1,16 +1,16 @@
 <template>
     <div class="container">
-        <p class="title">{{ projectName }}</p>
+        <p class="title">{{ project.name }}</p>
         <div class="contentContainer">
             <p class="label">Bugs :</p>
             <div class="issueListContainer">
-                <SprintIssuesList :issues="issues.getBugListTodo" />
-                <SprintIssuesList :issues="issues.getBugListDone" />
+                <SprintIssuesList :issues="bugTodoList" />
+                <!-- <SprintIssuesList :issues="issues.getBugListDone" /> -->
             </div>
             <p class="label">Features :</p>
             <div class="issueListContainer">
-                <SprintIssuesList :issues="issues.getFeatureListTodo" />
-                <SprintIssuesList :issues="issues.getFeatureListDone" />
+                <!-- <SprintIssuesList :issues="issues.getFeatureListTodo" />
+                <SprintIssuesList :issues="issues.getFeatureListDone" /> -->
             </div>
         </div>
     </div>
@@ -18,17 +18,25 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
+import { Issue, Project } from '@cto-dashboard-model/cto-dashboard-model'
 import SprintIssuesList from '@/components/SprintIssuesList.vue'
 
 @Options({
     props: {
-        issues: Object,
-        projectName: {
-            type: String,
-        },
+        issues: Array as () => Array<Issue>,
+        project: Project,
     },
     components: {
         SprintIssuesList,
+    },
+    computed: {
+        bugTodoList: Array as () => Array<Issue>,
+        bugDoneList: Array as () => Array<Issue>,
+        featureTodoList: Array as () => Array<Issue>,
+        featureDoneList: Array as () => Array<Issue>,
+    },
+    mounted() {
+        this.bugTodoList = this.store.getters.getBugListTodo(this.project.id)
     },
 })
 export default class ProjectDetails extends Vue {}

@@ -239,8 +239,8 @@
     minimist "^1.2.0"
 
 "@cto-dashboard-model/cto-dashboard-model@https://github.com/adadgio/cto-dashboard-model":
-  version "1.2.1"
-  resolved "https://github.com/adadgio/cto-dashboard-model#2463804e35c9c52f106d4cc9560280353930a33a"
+  version "1.6.1"
+  resolved "https://github.com/adadgio/cto-dashboard-model#51843ab6a3cc8ae3d83285eab744b79184b26c51"
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"

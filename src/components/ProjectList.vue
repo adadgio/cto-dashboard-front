@@ -2,7 +2,7 @@
     <div id="list">
         <ul>
             <li class="projectList"  v-for="project in projects" :key="project.name">
-                <Project :project="project"/>
+                <Project :project="project" @click="onclick(project)" />
             </li>
         </ul>
     </div>
@@ -31,6 +31,11 @@ import Project from '@/components/Project.vue'
     props: {
         projects: {
             type: Array as () => Array<ProjectObj>,
+        },
+    },
+    methods: {
+        onclick(project: Project) {
+            this.$emit('showDetail', project)
         },
     },
 })

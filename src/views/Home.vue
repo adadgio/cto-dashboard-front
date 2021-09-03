@@ -4,9 +4,9 @@
             :options="sprints"
         />
         <div class="projectContainer">
-            <ProjectList :projects="projects" @click="onProjectClick" />
+            <ProjectList :projects="projects" @showDetail="showDetail2" />
             <template v-if="displayDetail === true">
-                <ProjectDetails :projectName="'test'" :issues="issues" />
+                <ProjectDetails :project="currentProject" :issues="currentProjectIssueList" />
             </template>
         </div>
     </div>
@@ -16,7 +16,7 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
 import { mapState } from 'vuex'
-import { Sprint } from '@cto-dashboard-model/cto-dashboard-model'
+import { Issue, Project, Sprint } from '@cto-dashboard-model/cto-dashboard-model'
 import ProjectList from '@/components/ProjectList.vue'
 import SprintSelector from '@/components/SprintSelector.vue'
 import ProjectDetails from '@/components/ProjectDetails.vue'
@@ -30,6 +30,8 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
     data() {
         return {
             displayDetail: false,
+            currentProject: null,
+            currentProjectIssueList: [],
             sprints: [
                 {
                     id: 1, name: 'Sprint 1', checked: false,
@@ -45,12 +47,6 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
         this.$store.dispatch('fetchIssues') // TODO : mettre la ligne dans onSelectChange
     },
     computed: {
-        // projects() {
-        //    return this.$store.state.projectlist
-        // },
-        // issues() {
-        //    return this.$store.state.issueList
-        // },
         ...mapState({
             projects: (state: any) => {
                 return state.projectlist
@@ -61,8 +57,9 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
         }),
     },
     methods: {
-        onProjectClick() {
-            // @todo Open project detailed view
+        showDetail2(project: Project) {
+            this.currentProject = project
+            this.currentProjectIssueList = this.$store.state.issueList.filter((issue: Issue) => issue.projectId === project.id)
             this.displayDetail = !this.displayDetail
         },
         onSelectChange(e: Sprint) {

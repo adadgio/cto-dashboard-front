@@ -12,18 +12,25 @@ const store = createStore({
         token: preloadedToken,
         projectlist: [],
         sprintList: [],
-        issueList: {
-            getBugListTodo: [],
-            getBugListDone: [],
-            getFeatureListTodo: [],
-            getFeatureListDone: [],
-        },
+        issueList: [],
         error: null,
     },
     getters: {
         isAuthenticated: () => {
             return true
             // return state.token !== null
+        },
+        getBugListTodo: (state, id: string) => {
+            return state.issueList.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Todo' && issue.projectId === id)
+        },
+        getBugListDone: (state, id: string) => {
+            return state.issueList.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Done' && issue.projectId === id)
+        },
+        getFeatureListTodo: (state, id: string) => {
+            return state.issueList.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Todo' && issue.projectId === id)
+        },
+        getFeatureListDone: (state, id: string) => {
+            return state.issueList.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Done' && issue.projectId === id)
         },
     },
     mutations: {
@@ -32,10 +39,7 @@ const store = createStore({
         },
 
         SET_ISSUES(state, issues) {
-            state.issueList.getBugListTodo = issues.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Todo')
-            state.issueList.getBugListDone = issues.filter((issue: Issue) => issue.type === 'Bug' && issue.status === 'Done')
-            state.issueList.getFeatureListTodo = issues.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Todo')
-            state.issueList.getFeatureListDone = issues.filter((issue: Issue) => issue.type === 'Feature' && issue.status === 'Done')
+            state.issueList = issues
         },
 
         SET_SPRINTS(state, sprint) {
