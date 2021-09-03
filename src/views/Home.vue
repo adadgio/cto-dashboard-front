@@ -5,9 +5,11 @@
         />
         <div class="projectContainer">
             <ProjectList :projects="projects" @click="onProjectClick" />
-            <template v-if="displayDetail === true">
-                <ProjectDetails :projectName="'test'" :issues="issues" />
-            </template>
+            <transition name="fade">
+                <template v-if="displayDetail === true">
+                    <ProjectDetails :projectName="'test'" :issues="issues" />
+                </template>
+            </transition>
         </div>
     </div>
 
@@ -42,7 +44,7 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
     },
     mounted() {
         this.$store.dispatch('fetchProjects') // TODO : mettre la ligne dans onSelectChange
-        this.$store.dispatch('fetchIssues') // TODO : mettre la ligne dans onSelectChange
+        this.$store.dispatch('fetchIssues', 1) // TODO : mettre la ligne dans onSelectChange
     },
     computed: {
         // projects() {
@@ -57,6 +59,9 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
             },
             issues: (state: any) => {
                 return state.issueList
+            },
+            authorized: (state: any) => {
+                return state.authorized
             },
         }),
     },
@@ -80,4 +85,14 @@ export default class Home extends Vue {}
         justify-content: center;
         margin-top: 15px;
     }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
 </style>

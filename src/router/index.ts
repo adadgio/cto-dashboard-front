@@ -30,11 +30,12 @@ const router = createRouter({
 })
 
 router.beforeEach((to: RouteLocation, from: RouteLocation, next) => { // to: any, from: any, next
-    const { isAuthenticated } = store.getters
-
-    if (!isAuthenticated && to.name !== 'Login') {
+    if (!store.state.authorized && to.name !== 'Login') {
+        console.log('login failed')
         next({ name: 'Login' })
     } else {
+        console.log(store.state.authorized)
+        console.log('logged in')
         next()
     }
 })
