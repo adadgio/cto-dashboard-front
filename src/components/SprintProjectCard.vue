@@ -37,7 +37,7 @@ export default class SprintProjectCard extends Vue {}
 .content {
     display: flex;
     flex-direction: column;
-      border-radius: 0.375rem;
+    border-radius: 0.375rem;
 
 }
 .on-going {
@@ -46,7 +46,7 @@ export default class SprintProjectCard extends Vue {}
     display: flex;
     justify-content: center;
     height: 30px;
-     border-radius: 0.375rem;
+    border-radius: 0.375rem;
 }
 .done {
     color: white;
@@ -54,7 +54,7 @@ export default class SprintProjectCard extends Vue {}
     display: flex;
     justify-content: center;
     height: 30px;
-     border-radius: 0.375rem;
+    border-radius: 0.375rem;
 }
 .Label {
     margin: 0px;

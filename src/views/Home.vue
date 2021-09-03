@@ -5,7 +5,9 @@
         />
         <div class="projectContainer">
             <ProjectList :projects="projects" @click="onProjectClick" />
-            <ProjectDetails :projectName="'test'" :issues="issues" />
+            <template v-if="displayDetail === true">
+                <ProjectDetails :projectName="'test'" :issues="issues" />
+            </template>
         </div>
     </div>
 
@@ -25,9 +27,9 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
         SprintSelector,
         ProjectDetails,
     },
-
     data() {
         return {
+            displayDetail: false,
             sprints: [
                 {
                     id: 1, name: 'Sprint 1', checked: false,
@@ -39,7 +41,7 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
         }
     },
     mounted() {
-        this.$store.dispatch('fetchProjects')
+        this.$store.dispatch('fetchProjects') // TODO : mettre la ligne dans onSelectChange
         this.$store.dispatch('fetchIssues') // TODO : mettre la ligne dans onSelectChange
     },
     computed: {
@@ -61,10 +63,10 @@ import ProjectDetails from '@/components/ProjectDetails.vue'
     methods: {
         onProjectClick() {
             // @todo Open project detailed view
+            this.displayDetail = !this.displayDetail
         },
         onSelectChange(e: Sprint) {
             console.log(e)
-            this.state.action.fetchProject(e.id)
         },
     },
 })
